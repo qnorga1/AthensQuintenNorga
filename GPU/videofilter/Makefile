@@ -1,7 +1,8 @@
 EXE=videofilter
+OCLLIBSDIR=/opt/ComputeLibrary/build/
 CVINCFLAGS=`pkg-config --libs --cflags opencv`
-CVLIBFLAGS=`pkg-config --libs opencv`
-DBGFLAGS= -pg
+CVLIBFLAGS=`pkg-config --libs opencv` -L${OCLLIBSDIR} -larm_compute -larm_compute_core -lOpenCL
+DBGFLAGS= -g
 GCC=g++
 SRCS=./videofilter.cpp
 all:${EXE}
